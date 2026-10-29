@@ -1,5 +1,8 @@
 import pg from "pg";
+import { Pool, types } from 'pg';
 import { env } from "./env.js";
+
+types.setTypeParser(1114, (value) => value);
 
 export const pool = new pg.Pool({
   connectionString: env.DATABASE_URL,

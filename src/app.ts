@@ -3,6 +3,7 @@ import { healthRouter } from "./routes/health.routes.js";
 import { notFoundHandler } from "./middlewares/notFound.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import { authRouter } from "./routes/auth.routes.js";
+import { voucherRouter } from "./routes/voucher.routes.js";
 import cookieParser from "cookie-parser";
 
 export function createApp() {
@@ -14,6 +15,7 @@ export function createApp() {
 
   app.use("/health", healthRouter);
   app.use("/auth", authRouter);
+    app.use("/voucher", voucherRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
